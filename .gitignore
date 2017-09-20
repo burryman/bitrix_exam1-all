@@ -18,6 +18,7 @@ bitrix/.settings.php
 /upload*
 
 # ядро Битрикс
+/bitrix*
 /bitrix/.access.php
 /bitrix/activities/
 /bitrix/activity_limit.php
