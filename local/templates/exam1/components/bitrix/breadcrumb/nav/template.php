@@ -13,8 +13,8 @@ if(empty($arResult))
 
 $strReturn = '';
 
-$strReturn .= '<div class="breadcrumbs-box"><div class="inner-wrap">';
 
+$strReturn .= '<div class="breadcrumbs-box"><div class="inner-wrap">';
 $itemSize = count($arResult);
 for($index = 0; $index < $itemSize; $index++)
 {
@@ -33,13 +33,13 @@ for($index = 0; $index < $itemSize; $index++)
 	}
 	else
 	{
-		$strReturn .= '
-				<span>'.$title.'</span>';
+		$strReturn .= '<span>'.$title.'</span>';
 	}
 }
 
 $strReturn .= '<div style="clear:both"></div></div></div>';
 
 return $strReturn;
+
 
 

@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("title", "О компании");
 $APPLICATION->SetTitle("О компании");
 ?><img height="283" width="475" src="/upload/company.jpg" /> 
 <p> Наша компания существует на Российском рынке с 1992 года. За это время <b>&laquo;Мебельная компания&raquo;</b> прошла большой путь от маленькой торговой фирмы до одного из крупнейших производителей корпусной мебели в России. 						 </p>

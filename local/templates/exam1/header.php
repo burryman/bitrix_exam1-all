@@ -44,10 +44,11 @@ $workTime = (date(h) > 9) && (date(h) < 18);
                     <div class="shedule">время работы с 9-00 до 18-00</div>
                 </div>
                 <div class="actions-block">
-                    <form action="/" class="main-frm-search">
-                        <input type="text" placeholder="Поиск">
-                        <button type="submit"></button>
-                    </form>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:search.form",
+                        "search_form",
+                    Array()
+                    );?>
                     <nav class="menu-block">
                         <ul>
                             <li class="att popup-wrap">
@@ -95,11 +96,17 @@ $workTime = (date(h) > 9) && (date(h) < 18);
         <!-- /nav -->
         <!-- breadcrumbs -->
         <?if ($APPLICATION->GetCurPage() != "/"):?>
-            <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "nav", Array(
-                
-                ),
-                false
-            );?>
+            <?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb", 
+	"nav", 
+	array(
+		"COMPONENT_TEMPLATE" => "nav",
+		"START_FROM" => "0",
+		"PATH" => "",
+		"SITE_ID" => "s1"
+	),
+	false
+);?>
         <?endif?>
         <!-- /breadcrumbs -->
         <!-- page -->
