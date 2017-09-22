@@ -5,15 +5,12 @@ IncludeTemplateLangFile(__FILE__);
 $workTime = (date(h) > 9) && (date(h) < 18);
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="<?=LANGUAGE_ID?>">
 
 <head>
     <title><?$APPLICATION->ShowTitle()?></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8" />
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=<?echo LANG_CHARSET?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?$APPLICATION->ShowHead();?>
     <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/css/reset.css" />
@@ -49,29 +46,19 @@ $workTime = (date(h) > 9) && (date(h) < 18);
                         "search_form",
                     Array()
                     );?>
-                    <nav class="menu-block">
-                        <ul>
-                            <li class="att popup-wrap">
-                                <a id="hd_singin_but_open" href="" class="btn-toggle">Войти на сайт</a>
-                                <form action="/" class="frm-login popup-block">
-                                    <div class="frm-title">Войти на сайт</div>
-                                    <a href="" class="btn-close">Закрыть</a>
-                                    <div class="frm-row"><input type="text" placeholder="Логин"></div>
-                                    <div class="frm-row"><input type="password" placeholder="Пароль"></div>
-                                    <div class="frm-row"><a href="" class="btn-forgot">Забыли пароль</a></div>
-                                    <div class="frm-row">
-                                        <div class="frm-chk">
-                                            <input type="checkbox" id="login">
-                                            <label for="login">Запомнить меня</label>
-                                        </div>
-                                    </div>
-                                    <div class="frm-row"><input type="submit" value="Войти"></div>
-                                </form>
-                            </li>
-                            <li><a href="">Зарегистрироваться</a>
-                            </li>
-                        </ul>
-                    </nav>
+
+                    <?$APPLICATION->IncludeComponent(
+	"bitrix:system.auth.form", 
+	"demo", 
+	array(
+		"COMPONENT_TEMPLATE" => "demo",
+		"FORGOT_PASSWORD_URL" => "",
+		"PROFILE_URL" => "/login/user.php",
+		"REGISTER_URL" => "/login/index.php",
+		"SHOW_ERRORS" => "N"
+	),
+	false
+);?>
                 </div>
             </div>
         </header>
